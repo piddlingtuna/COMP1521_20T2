@@ -1,0 +1,66 @@
+#include <stdint.h>
+
+uint16_t a = 0x5555, b = 0xAAAA, c = 0x0001;
+
+What are the values of the following expressions:
+
+a. a | b (bitwise OR)
+
+| 0 1
+0 0 1
+1 1 1
+
+0b1010 |
+0b0101 =
+0b1111 = 0xf
+
+a = 0x5 == 0b0101 = 0b1010
+b = 0xA
+A = 10
+10 - 8 = 2
+2 -2 = 0
+
+
+5 - 4 =1
+1 - 1 0
+
+
+b. a & b (bitwise AND)
+
+| 0 1
+0 0 0
+1 0 1
+
+0b1010 
+0b0101 =
+0b0000 = 0x0
+
+c. a ^ b (bitwise XOR)
+
+| 0 1
+0 0 1
+1 1 0
+
+0b1010 
+0b0101 ^
+0b1111 = 0xf
+
+d. a & ~b (bitwise AND)
+ b = 0b0101
+~b = 0b1010
+     0b1010 &
+     0b1010
+e. c << 6 (left shift)
+0x0001 = 0b 00 0000 0001 00 000 << 6
+
+f. a >> 4 (right shift)
+a = 0x5555 = 0b 0000 0101 0101 0101
+
+g. a & (b << 1)
+
+
+i. b | c
+
+
+h. a & ~c
+

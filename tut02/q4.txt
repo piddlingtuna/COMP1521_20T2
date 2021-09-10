@@ -1,0 +1,59 @@
+#define READING   0x01 == 0b00000001
+#define WRITING   0x02 == 0b00000010
+#define AS_BYTES  0x04 == 0b00000100
+#define AS_BLOCKS 0x08 == 0b00001000
+#define LOCKED    0x10
+
+
+The flags are contained in an 8-bit register, defined as:
+unsigned char device;
+
+Write C expressions to implement each of the following:
+
+a. mark the device as locked for reading bytes
+device = AS_BYTES | READING | LOCKED
+0b00000100 |
+0b00000001 |
+0b00010000 =
+0b00010101 
+#define READING   0x01 == 0b00000001
+#define WRITING   0x02 == 0b00000010
+#define AS_BYTES  0x04 == 0b00000100
+#define AS_BLOCKS 0x08 == 0b00001000
+#define LOCKED    0x10 == 0b00010000
+
+
+b. mark the device as locked for writing blocks
+device = LOCKED | WRITING | AS_BLOCKS
+0b00010000 |
+0b00000010 |
+0b00001000 =
+0b00011010
+
+c. set the device as locked, leaving other flags unchanged
+device = device | LOCKED
+original = 0b00001010 |
+           0b00010000 =
+           0b00011010
+
+
+d. remove the lock on a device, leaving other flags unchanged
+device = device & ~LOCKED
+LOCKED  = 0b00010000
+~LOCKED = 0b11101111
+0b00011010 & 
+0b11101111
+0b00001010
+e. switch a device from reading to writing, leaving other flags unchanged
+device = (device & ~READING) | WRITING
+0b00010101 &
+0b11111110
+0b00010100
+
+0b00010100 |
+0b00000010
+0b00010110
+
+0b00011010 ^ 
+0b11101111
+0b111101
